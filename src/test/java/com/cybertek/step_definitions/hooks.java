@@ -12,6 +12,7 @@ public class hooks {
         System.out.println("--- myBefore each scenario ---");
     }
 
+
     @After
     public void tearDownScenario(){
         BrowserUtils.sleep(1);

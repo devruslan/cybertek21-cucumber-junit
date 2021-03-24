@@ -12,7 +12,7 @@ public class ExcelRead {
     @Test
     public void excel_read_test() throws IOException {
 
-        String path = "SampleData.xlsx";
+        String path = "src/test/resources/testData/SampleData.xlsx";
         //Load the file in order to be able to read from it
         FileInputStream fileInputStream = new FileInputStream(path);
 

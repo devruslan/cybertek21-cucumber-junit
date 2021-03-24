@@ -19,7 +19,7 @@ public class ExcelWrite {
 
     @Test
     public void excel_write_() throws IOException {
-        String path = "SampleData.xlsx";
+        String path = "src/test/resources/testData/SampleData.xlsx";
         FileInputStream fileInputStream = new FileInputStream(path);
 
         workbook = new XSSFWorkbook(fileInputStream);//returns workbook
