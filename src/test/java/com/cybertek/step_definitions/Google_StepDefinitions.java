@@ -57,7 +57,6 @@ public class Google_StepDefinitions {
         String actualTitle = Driver.getDriver().getTitle();
         String expectedInTitle = string;
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
-
     }
 
 
@@ -69,7 +68,5 @@ public class Google_StepDefinitions {
         for (WebElement eachLink : googleSearchPage.footerLinks) {
             System.out.println(eachLink.getText());
         }
-
     }
-
 }

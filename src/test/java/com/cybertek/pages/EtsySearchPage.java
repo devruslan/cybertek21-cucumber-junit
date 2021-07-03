@@ -1,17 +1,16 @@
 package com.cybertek.pages;
 
-import com.cybertek.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class EtsySearchPage {
+public class EtsySearchPage extends BasePage {
 
-    public EtsySearchPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
+//    public EtsySearchPage() {
+//        PageFactory.initElements(myDriver, this);
+//    }
 
     @FindBy(id = "global-enhancements-search-query")
     public WebElement searchBox;
+
 
 }

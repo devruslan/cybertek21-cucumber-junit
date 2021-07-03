@@ -26,7 +26,7 @@ Feature: Simple example of how dataTables work
       |password|test |
     Then User should see title changed to Web Orders
 
-
+  @this
   Scenario: Something happens
 #    Given user is somewhere
     Then User should see below words displayed

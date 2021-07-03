@@ -19,6 +19,7 @@ public class DataTable_StepDefinitions {
     SmartBearLoginPage smartBearLoginPage = new SmartBearLoginPage();
     DropDownPage dropDownPage = new DropDownPage();
 
+
     @Then("User should see below words displayed")
     public void user_should_see_below_words_displayed(List<String> fruitList) {
         System.out.println(fruitList.size());

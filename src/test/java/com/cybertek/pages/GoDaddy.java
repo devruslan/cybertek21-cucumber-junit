@@ -1,5 +1,6 @@
 package com.cybertek.pages;
 
+import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.Driver;
 import org.junit.After;
 import org.junit.Test;
@@ -8,46 +9,52 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.Random;
+
 public class GoDaddy {
 
     @Test
     public void godaddy() {
         Actions a = new Actions(Driver.getDriver());
+        Random r = new Random();
         Driver.getDriver().get("https://godaddy.com");
         WebElement searchMain = Driver.getDriver().findElement(By.xpath("//input[@name='domainToCheck']"));
         searchMain.sendKeys("a" + Keys.RETURN);
         int count = 0;
         int total = 0;
 
-        for (int i5 = 'a'; i5 <= 'z'; i5++) {
-            String searchKey = "" + (char) i5;
-            WebElement search = Driver.getDriver().findElement(By.id("domain-search-box"));
-            a.moveToElement(search).doubleClick().perform();
-            search.sendKeys(searchKey + Keys.RETURN);
-            WebElement result = Driver.getDriver().findElement
-                    (By.xpath("//div[@id='exact-match']//*[contains(text(), '" + searchKey + ".com')]"));
-            if (!result.getText().contains("taken")) {
-                WebElement priceInfo = Driver.getDriver().findElement(By.xpath("//span[@class='ms7 text-primary-o']"));
-                System.out.println(searchKey + " = " + result.getText() + " | " + priceInfo.getText());
-                count++;
-                total++;
-            }
-        }
+//        for (int i5 = 'a'; i5 <= 'z'; i5++) {
+//            String searchKey = "" + (char) i5;
+//            WebElement search = Driver.getDriver().findElement(By.id("domain-search-box"));
+//            a.moveToElement(search).doubleClick().perform();
+//            search.sendKeys(searchKey + Keys.RETURN);
+//            WebElement result = Driver.getDriver().findElement
+//                    (By.xpath("//div[@id='exact-match']//*[contains(text(), '" + searchKey + ".com')]"));
+//            if (!result.getText().contains("taken")) {
+//                WebElement priceInfo = Driver.getDriver().findElement(By.xpath("//span[@class='ms7 text-primary-o']"));
+//                System.out.println(result.getText() + " | " + priceInfo.getText());
+//                count++;
+//                total++;
+//            }
+//        }
+//
+//        System.out.println("--- 1 Char - COMPLETED [Total: " +  count + " | Grand Total: " + total + "] ---");
 
-        System.out.println("--- 1 Char - COMPLETED [Total: " +  count + " | Grand Total: " + total + "] ---");
-
-        count = 0;
+//        count = 0;
         for (int i4 = 'a'; i4 <= 'z'; i4++)
             for (int i5 = 'a'; i5 <= 'z'; i5++) {
                 String searchKey = "" + (char) i4 + (char) i5;
                 WebElement search = Driver.getDriver().findElement(By.id("domain-search-box"));
                 a.moveToElement(search).doubleClick().perform();
                 search.sendKeys(searchKey + Keys.RETURN);
+                System.out.println(r.nextInt(3)+1);
+                BrowserUtils.sleep();
                 WebElement result = Driver.getDriver().findElement
                         (By.xpath("//div[@id='exact-match']//*[contains(text(), '" + searchKey + ".com')]"));
+
                 if (!result.getText().contains("taken")) {
                     WebElement priceInfo = Driver.getDriver().findElement(By.xpath("//span[@class='ms7 text-primary-o']"));
-                    System.out.println(searchKey + " = " + result.getText() + " | " + priceInfo.getText());
+                    System.out.println(result.getText() + " | " + priceInfo.getText());
                     count++;
                     total++;
                 }
@@ -67,7 +74,7 @@ public class GoDaddy {
                             (By.xpath("//div[@id='exact-match']//*[contains(text(), '" + searchKey + ".com')]"));
                     if (!result.getText().contains("taken")) {
                         WebElement priceInfo = Driver.getDriver().findElement(By.xpath("//span[@class='ms7 text-primary-o']"));
-                        System.out.println(searchKey + " = " + result.getText() + " | " + priceInfo.getText());
+                        System.out.println(result.getText() + " | " + priceInfo.getText());
                         count++;
                         total++;
                     }
@@ -88,7 +95,7 @@ public class GoDaddy {
                                 (By.xpath("//div[@id='exact-match']//*[contains(text(), '" + searchKey + ".com')]"));
                         if (!result.getText().contains("taken")) {
                             WebElement priceInfo = Driver.getDriver().findElement(By.xpath("//span[@class='ms7 text-primary-o']"));
-                            System.out.println(searchKey + " = " + result.getText() + " | " + priceInfo.getText());
+                            System.out.println(result.getText() + " | " + priceInfo.getText());
                             count++;
                             total++;
                         }
@@ -110,7 +117,7 @@ public class GoDaddy {
                                     (By.xpath("//div[@id='exact-match']//*[contains(text(), '" + searchKey + ".com')]"));
                             if (!result.getText().contains("taken")) {
                                 WebElement priceInfo = Driver.getDriver().findElement(By.xpath("//span[@class='ms7 text-primary-o']"));
-                                System.out.println(searchKey + " = " + result.getText() + " | " + priceInfo.getText());
+                                System.out.println(result.getText() + " | " + priceInfo.getText());
                                 count++;
                                 total++;
                             }
